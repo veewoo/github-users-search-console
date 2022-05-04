@@ -55,9 +55,11 @@ const Layout = ({ children }: LayoutProps) => {
               p: 3,
             }}
           >
-            <Header onSwitchChange={handleSwitchChange} />
-            {children}
-            <Footer />
+            <div className="container mx-auto">
+              <Header onSwitchChange={handleSwitchChange} />
+              {children}
+              <Footer />
+            </div>
           </Box>
         </ThemeProvider>
       </ColorModeContext.Provider>

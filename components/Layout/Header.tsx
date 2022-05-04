@@ -20,4 +20,4 @@ const Header: React.FC<Props> = ({ onSwitchChange }) => {
   );
 };
 
-export default React.memo(Header);
+export default Header;
