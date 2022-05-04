@@ -6,14 +6,16 @@ import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import { useTheme, ThemeProvider, createTheme } from "@mui/material/styles";
 
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+export const ColorModeContext = React.createContext({
+  toggleColorMode: () => {},
+});
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
 const Layout = ({ children }: LayoutProps) => {
-  const [mode, setMode] = React.useState<"light" | "dark">("light");
+  const [mode, setMode] = React.useState<"light" | "dark">("dark");
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
@@ -33,13 +35,30 @@ const Layout = ({ children }: LayoutProps) => {
     [mode]
   );
 
+  const handleSwitchChange = (checked: boolean) => {
+    setMode(checked ? "dark" : "light");
+  };
+
   return (
     <>
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
-          <Header />
-          {children}
-          <Footer />
+          <Box
+            sx={{
+              display: "flex",
+              width: "100%",
+              alignItems: "center",
+              justifyContent: "center",
+              bgcolor: "background.default",
+              color: "text.primary",
+              borderRadius: 1,
+              p: 3,
+            }}
+          >
+            <Header onSwitchChange={handleSwitchChange} />
+            {children}
+            <Footer />
+          </Box>
         </ThemeProvider>
       </ColorModeContext.Provider>
     </>

@@ -1,25 +1,19 @@
 import { useRouter } from "next/router";
 import React from "react";
-
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Switch } from "@mui/material";
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
+type Props = {
+  onSwitchChange: (checked: boolean) => void;
+};
 
-const Header = () => {
-  const router = useRouter();
-
+const Header: React.FC<Props> = ({ onSwitchChange }) => {
   return (
     <header className="container flex items-center justify-between py-4 mx-auto mb-8">
       <h2 className="text-3xl">Search</h2>
       <Switch
         defaultChecked
         onChange={(e) => {
-          console.log(e.target.checked);
+          onSwitchChange(e.target.checked);
         }}
       />
     </header>
