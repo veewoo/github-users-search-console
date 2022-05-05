@@ -44,6 +44,7 @@ const Layout = ({ children }: LayoutProps) => {
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
           <Box
+            className="block w-full h-full overflow-auto"
             sx={{
               display: "flex",
               width: "100%",
@@ -55,7 +56,7 @@ const Layout = ({ children }: LayoutProps) => {
               p: 3,
             }}
           >
-            <div className="container mx-auto">
+            <div className="container flex flex-col h-full mx-auto">
               <Header onSwitchChange={handleSwitchChange} />
               {children}
               <Footer />

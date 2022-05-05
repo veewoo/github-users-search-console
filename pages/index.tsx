@@ -17,6 +17,7 @@ import React, { useEffect, useState } from "react";
 import { ColorModeContext } from "../components/Layout/Layout";
 import _ from "lodash";
 import axios from "axios";
+import UserCard from "../components/UserCard/UserCard";
 
 let debounceFunction: _.DebouncedFunc<() => void>;
 
@@ -64,7 +65,7 @@ const Home: NextPage = () => {
   }, [githubUsers]);
 
   return (
-    <main>
+    <main className="">
       <TextField
         className="w-full"
         id="outlined-basic"
@@ -76,30 +77,14 @@ const Home: NextPage = () => {
         }}
       />
       <div>{total} GitHub users found</div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap overflow-y-auto">
         {githubUsers.map((item) => (
-          <Card className="w-6/12">
-            <CardMedia
-              component="img"
-              width="64"
-              height="64"
-              image={item.avatar_url}
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Lizard
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over
-                6,000 species, ranging across all continents except Antarctica
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Share</Button>
-              <Button size="small">Learn More</Button>
-            </CardActions>
-          </Card>
+          <UserCard
+            name={item.login}
+            image={item.avatar_url}
+            followersUrl={item.followers_url}
+            followingsUrl={item.following_url}
+          />
         ))}
       </div>
     </main>
