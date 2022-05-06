@@ -1,18 +1,18 @@
 import React from "react";
 
-const Footer = () => {
+const HomeFooter = () => {
   return (
-    <footer className="text-center mt-auto py-4">
-      <a
+    <footer className="">
+      {/* <a
         href="https://github.com/veewoo"
         target="_blank"
         rel="noopener noreferrer"
       >
         <span>Powered by </span>
         <span> VeeWoo</span>
-      </a>
+      </a> */}
     </footer>
   );
 };
 
-export default React.memo(Footer);
+export default HomeFooter;
