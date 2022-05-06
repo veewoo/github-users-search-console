@@ -1,14 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
-  CardActions,
-  Button,
-} from "@mui/material";
-import Image from "next/image";
-import axios from "axios";
+import { Card, CardContent, Typography } from "@mui/material";
 import OCTOKIT from "../../utils/octokit";
 import style from "../../styles/Card.module.css";
 import { useRouter } from "next/router";
@@ -52,7 +43,13 @@ const UserCard: React.FC<Props> = ({ name, image }) => {
         }}
       ></div>
       <CardContent className="p-0">
-        <Typography gutterBottom variant="body1">
+        <Typography
+          className={
+            "whitespace-nowrap overflow-hidden text-ellipsis " + style.name
+          }
+          gutterBottom
+          variant="body1"
+        >
           <b>{name}</b>
         </Typography>
         {followers > -1 && (
@@ -61,10 +58,6 @@ const UserCard: React.FC<Props> = ({ name, image }) => {
         {followings > -1 && (
           <Typography variant="body2">followings: {followings}</Typography>
         )}
-        {/* <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
-        </Typography> */}
       </CardContent>
       {/* <CardActions>
         <Button size="small">Share</Button>
