@@ -1,14 +1,12 @@
 import React from "react";
-import HomeHeader from "./HomeHeader";
-import HomeFooter from "./HomeFooter";
-import Box from "@mui/material/Box";
 import { Container } from "@mui/material";
+import UserDetailHeader from "./UserDetailHeader";
 
 type LayoutProps = {
   children: React.ReactNode;
 };
 
-const HomeLayout = ({ children }: LayoutProps) => {
+const UserDetailLayout = ({ children }: LayoutProps) => {
   return (
     <Container
       maxWidth="sm"
@@ -24,11 +22,10 @@ const HomeLayout = ({ children }: LayoutProps) => {
         p: 3,
       }}
     >
-      <HomeHeader />
+      <UserDetailHeader />
       {children}
-      <HomeFooter />
     </Container>
   );
 };
 
-export default HomeLayout;
+export default UserDetailLayout;

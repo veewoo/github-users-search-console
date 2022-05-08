@@ -1,0 +1,3 @@
+.repo-list-container {
+  max-height: calc(100vh - (70px + 440px));
+}

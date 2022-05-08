@@ -1,6 +1,5 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import HomeLayout from "../components/Layout/HomeLayout";
 import { StyledEngineProvider } from "@mui/material/styles";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { ColorModeContext } from "../utils/contexts";
@@ -31,9 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <StyledEngineProvider injectFirst>
       <ColorModeContext.Provider value={colorMode}>
         <ThemeProvider theme={theme}>
-          <HomeLayout>
-            <Component {...pageProps} />
-          </HomeLayout>
+          <Component {...pageProps} />
         </ThemeProvider>
       </ColorModeContext.Provider>
     </StyledEngineProvider>
