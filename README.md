@@ -20,10 +20,10 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 ## What I have done
 
-- Search Page / 
+- Search Page (/)
   + Search users based on username and view a list of user cards with pagination.
   + Show a user list.
-- User Detail Page /users/:username
+- User Detail Page (/users/:username)
 - Support dark mode.
 - Written in TypeScript.
 - All pages are server-side rendered.
